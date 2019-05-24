@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #CERTIFICATES
 
 CAALIAS=ca_sso
@@ -18,6 +19,8 @@ SSOCERT=sso.cer
 SSOSIGNREQ=sso-request.cer
 SSO_TRUSTSTORE_FILENAME=truststore.jks
 SSO_TRUSTSTORE_PASSWORD=
+SOURCE_REPOSITORY_URL=https://github.com/luigidemasi/rhsso-with-ext-postgresql-db-cli.git
+
 
 
 SSO_NAMESPACE=sso

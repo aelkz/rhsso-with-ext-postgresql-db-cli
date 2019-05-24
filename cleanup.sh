@@ -3,9 +3,11 @@
 #EXIT ON ERROR
 #set -e
 
-rm  ca.cer  ca.key  ca.srl  httpskey.jceks  jgroups.jceks sso.cer  sso-request.cer truststore.jks
+BASEDIR=$(dirname "$0")
+. ${BASEDIR}/sso_env.sh
 
-. sso_env.sh
+rm ${CACERT_FILENAME} ${CAKEY_FILENAME} *.srl ${HTTPS_KEYSTORE_FILENAME} ${JGROUPS_ENCRYPT_KEYSTORE} ${SSOCERT} ${SSOSIGNREQ} ${SSO_TRUSTSTORE_FILENAME}
+
 
 echo "switch to ${SSO_NAMESPACE} project"
 error=$(oc project ${SSO_NAMESPACE})
@@ -18,9 +20,9 @@ else
 fi
 
 #oc delete secret env-datasource
-oc delete secret db-cli-script
-oc delete secret sso-app-secret
+oc delete secret cli-scripts -n ${SSO_NAMESPACE}
+oc delete secret ${HTTPS_SECRET} -n ${SSO_NAMESPACE}
 oc policy remove-role-from-user view system:serviceaccount:$(oc project -q):sso-service-account
-oc delete serviceaccount sso-service-account
+oc delete serviceaccount sso-service-account -n ${SSO_NAMESPACE}
 
 oc delete all --all -n ${SSO_NAMESPACE}
