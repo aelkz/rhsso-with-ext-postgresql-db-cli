@@ -51,7 +51,7 @@ oc process -f  sso73-https-postgresql-external-cli.yaml  \
 -p APPLICATION_NAME=${APPLICATION_NAME} \
 -p SSODB_PASSWORD=${SSODB_PASSWORD} \
 -p SSODB_USERNAME=${SSODB_USERNAME} \
--p SOURCE_REPOSITORY_URL=${https://github.com/luigidemasi/rhsso-with-ext-postgresql-db-cli.git}
+-p SOURCE_REPOSITORY_URL=${SOURCE_REPOSITORY_URL}
 -p SSODB_URL=${SSODB_URL} \
 -p DB_MIN_POOL_SIZE=${DB_MIN_POOL_SIZE} \
 -p DB_MAX_POOL_SIZE=${DB_MAX_POOL_SIZE} \
