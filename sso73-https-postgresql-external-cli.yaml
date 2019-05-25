@@ -313,7 +313,12 @@ objects:
         /subsystem=datasources/data-source=KeycloakDS:add(jndi-name=java:jboss/datasources/KeycloakDS,enabled=true,use-java-context=true,connection-url="${SSODB_URL}",driver-name=postgresql,user-name=${SSODB_USERNAME},password=${SSODB_PASSWORD})
         run-batch
         quit
-
+  - kind: ImageStream
+    apiVersion: v1
+    metadata:
+      name: "${APPLICATION_NAME}"
+      labels:
+        application: "${APPLICATION_NAME}"
   - kind: BuildConfig
     apiVersion: v1
     metadata:

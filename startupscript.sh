@@ -47,7 +47,7 @@ oc secret add sa/sso-service-account secret/${HTTPS_SECRET}
 
 echo "Start Deployment"
 
-oc process -f  sso73-https-postgresql-external-cli.yaml  \
+oc process -f ${BASEDIR}/sso73-https-postgresql-external-cli.yaml  \
 -p APPLICATION_NAME=${APPLICATION_NAME} \
 -p SSODB_PASSWORD=${SSODB_PASSWORD} \
 -p SSODB_USERNAME=${SSODB_USERNAME} \

@@ -25,4 +25,4 @@ oc delete secret ${HTTPS_SECRET} -n ${SSO_NAMESPACE}
 oc policy remove-role-from-user view system:serviceaccount:$(oc project -q):sso-service-account
 oc delete serviceaccount sso-service-account -n ${SSO_NAMESPACE}
 
-oc delete all --all -n ${SSO_NAMESPACE}
+oc delete -f ${BASEDIR}/sso73-https-postgresql-external-cli.yaml -n ${SSO_NAMESPACE}
